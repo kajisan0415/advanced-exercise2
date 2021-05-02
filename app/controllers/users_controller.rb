@@ -10,6 +10,7 @@ before_action :authenticate_user!
   def index
     @users = User.all
     @book = Book.new
+    
   end
 
   def edit
@@ -32,10 +33,12 @@ before_action :authenticate_user!
   end
   
   def followed
+    @user = User.find(params[:id])
     @followed = @user.followed_users
   end
 
   def followers
+    @user = User.find(params[:id])
     @followers = @user.follower_users
   end
 

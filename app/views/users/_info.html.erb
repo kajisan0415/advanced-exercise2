@@ -6,20 +6,32 @@
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
+	  <th>
+	    <%= user.introduction %>
+	  </th>
   </tr>
   <tr>
     <th>follows</th>
-    <th><%= user.followed.count %></th>
+    <th>
+      <%= link_to followed_user_path(user.id) do %>
+        <%= user.followed.count %>
+      <% end %>
+    </th>
   </tr>
   <tr>
     <th>followers</th>
-    <th><%= user.followers.count %></th>
+    <th>
+      <%= link_to followers_user_path(user.id) do %>
+        <%= user.followers.count %>
+      <% end %>
+    </th>
   </tr>
 </table>
 
 <div class='row'>
+  <% if user.id == current_user.id %>
   <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <% end %>
 </div>
 
 <div class='row'>
