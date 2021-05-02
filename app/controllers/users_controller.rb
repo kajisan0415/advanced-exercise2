@@ -30,6 +30,14 @@ before_action :authenticate_user!
       render "edit"
     end
   end
+  
+  def followed
+    @followed = @user.followed_users
+  end
+
+  def followers
+    @followers = @user.follower_users
+  end
 
   private
   
@@ -37,5 +45,7 @@ before_action :authenticate_user!
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
-
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
