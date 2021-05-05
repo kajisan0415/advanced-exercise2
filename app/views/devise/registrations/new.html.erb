@@ -12,6 +12,32 @@
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "email" %>
         </div>
+        
+        <div class="field">
+          <%= f.label :postcode %><br />
+          <%= f.text_field :postcode, autocomplete: 'postcode', class: 'postcode' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :prefecture_name %><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'prefecture_name' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :address_city %><br />
+          <%= f.text_field :address_city, autocomplete: 'address_city', class: 'address_city' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :address_street %><br />
+          <%= f.text_field :address_street, autocomplete: 'address_street', class: 'address_street' %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :address_building %><br />
+          <%= f.text_field :address_building, autocomplete: 'address_building', class: 'address_building' %>
+        </div>
+        
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
@@ -19,10 +45,12 @@
           <% end %><br />
           <%= f.password_field :password, autocomplete: "off", class: "password" %>
         </div>
+        
         <div class="field">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "password_confirm" %>
         </div>
+        
         <div class="actions">
           <%= f.submit "Sign up" ,class: 'btn btn-sm btn-success' %>
         </div>
