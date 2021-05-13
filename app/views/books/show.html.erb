@@ -7,7 +7,7 @@
       <%= render 'form', book: @new %>
     </div>
     <div class='col-md-8 offset-md-1'>
-  		<h2>Book detail</h2>
+  		<h2>Book Detail</h2>
   		<table class='table'>
   		  <tr>
   		    <td><%= link_to user_path(@user) do %>
@@ -35,7 +35,6 @@
       </table>
     <div class="book-comment">
       <%= render 'books/comment', book: @book,post_comment: @post_comment %>
-      
       <%= form_with model:[@book,@post_comment], remote: true do |f| %>
       <%= f.text_area :comment, size:"90x5" %><br>
       <%= f.submit '送信'%>
